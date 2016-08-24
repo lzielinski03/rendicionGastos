@@ -1,0 +1,31 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Rechazo Page</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+	<h2>Welcome to rechazo!</h2>
+
+	<form [formGroup]="rejectForm" (submit)="submit($event)">
+
+		<ion-item>
+			<ion-label>Motivo</ion-label>
+			<ion-select formControlName="motivo">
+				<ion-option *ngFor="let x of motivos" value="{{x.id}}">{{x.descripcion}}</ion-option>
+			</ion-select>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Observacion</ion-label>
+			<ion-textarea formControlName="observacion" type="text"></ion-textarea>
+		</ion-item>
+
+		<button type="submit" danger block [disabled]="!rejectForm.valid">Confirmar Rechazo</button>
+
+	</form>
+
+	<button block (click)="goBackToRendiciones()">go back to rendiciones</button>
+
+
+</ion-content>

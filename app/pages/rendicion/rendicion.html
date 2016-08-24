@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Rendicion</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <h2>Welcome to rendicion!</h2>
+
+   <ion-card *ngIf="rendicion">
+
+    <ion-item>
+      <ion-label >{{rendicion.description}}</ion-label>
+    </ion-item>
+
+    <h2 class="group-title">Gastos Ingresados:</h2>
+
+    <ion-card-content>
+
+      <div *ngFor="let rax of rendicion.gastos">
+
+        
+          <h2 class="card-title">Ceco:</h2>
+          <p>{{rax.ceco}}</p>
+        
+
+        
+          <h2 class="card-title">Concepto:</h2>
+          <p>{{rax.concepto}}</p>
+        
+
+        
+          <h2 class="card-title">Descripción:</h2>
+          <p>{{rax.descripcion}}</p>
+        
+
+        
+          <h2 class="card-title">Fecha:</h2>
+          <p>{{rax.fecha}}</p>
+        
+
+        
+          <h2 class="card-title">Forma de Pago:</h2>
+          <p>{{rax.formaPago}}</p>
+        
+
+        
+          <h2 class="card-title">Monto:</h2>
+          <p>{{rax.monto}}</p>
+        
+
+        
+          <h2 class="card-title">OI:</h2>
+          <p>{{rax.oi}}</p>
+        
+
+      </div>
+      <button danger button button-medium (click)="goToRechazo()">
+        <ion-icon name="ios-close-circle"></ion-icon>
+        Devolver
+      </button>
+      <button button item-right (click)="evaluate($event)">
+        <ion-icon name="checkmark-circle"></ion-icon>
+        Elevar
+      </button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

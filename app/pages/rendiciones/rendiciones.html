@@ -1,0 +1,51 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Rendiciones</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+	<h2>Welcome to Rendiciones!</h2>
+
+	<ion-list>
+		<div *ngFor="let process of processes">
+			<!--ion-list-header center>{{process.name}}</ion-list-header-->
+			<ion-item-group *ngFor="let activity of process.activities">
+				
+				<div *ngFor="let instance of activity.instances; let i = index">
+					<!-- "" -->
+
+					<ion-item-divider *ngIf="i == 0" light>
+						{{instance.recivedDate.dia}}/{{instance.recivedDate.mes}}/{{instance.recivedDate.anio}}
+					</ion-item-divider>
+					<!--ion-item (click)="legajoTapped(instance)">{{instance.description}}</ion-item-->
+					<ion-item-sliding #slidingItem>
+					<button ion-item (click)="goToRendicion(instance)">
+						<p>
+							{{instance.description}}
+						</p>
+					</button>
+
+					<ion-item-options>
+						<button favorite>
+							Aprobar
+						</button>
+						<button danger>
+							Rechazar
+						</button>
+					</ion-item-options>
+
+				</ion-item-sliding>
+				</div>
+
+			</ion-item-group>
+		</div>
+	</ion-list>
+	
+</ion-content>
+
+<ion-footer>
+  <ion-footer>
+    <ion-title>Besysoft</ion-title>
+  </ion-footer>
+</ion-footer>

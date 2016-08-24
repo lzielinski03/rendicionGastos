@@ -1,0 +1,31 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Rendicion de gastos</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+	<h2>Welcome to Login!</h2>
+
+	<form [formGroup]="authForm" (submit)="submit($event)">
+
+		<ion-item>
+			<ion-label>Usuario</ion-label>
+			<ion-input type="text" formControlName="username"></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label>Contraseña</ion-label>
+			<ion-input type="password" formControlName="password"></ion-input>
+		</ion-item>
+
+		<button type="submit" block [disabled]="!authForm.valid">Ingresar</button>
+	</form>
+	<button block (click)="goToTabs()">got to tabs</button>
+</ion-content>
+
+<ion-footer>
+  <ion-footer>
+    <ion-title>Besysoft</ion-title>
+  </ion-footer>
+</ion-footer>
