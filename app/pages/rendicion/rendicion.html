@@ -5,60 +5,60 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <h2>Welcome to rendicion!</h2>
+  <h2>{{rendicion.description}}</h2>
 
-   <ion-card *ngIf="rendicion">
+   <ion-card *ngIf="rendicion" class="rendicion">
 
-    <ion-item>
-      <ion-label >{{rendicion.description}}</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Gastos Ingresados: </ion-label>
-    </ion-item>
+    <ion-card-header class="item-title">Gastos Ingresados:</ion-card-header>
 
     <ion-card-content>
 
       <ion-list *ngFor="let rax of rendicion.gastos">
           <ion-item class="item">
-              <ion-label>Ceco:</ion-label>
+              <ion-label class="item-title">Ceco:</ion-label>
               <ion-label item-right>{{rax.ceco}}</ion-label>
           </ion-item>
           
           <ion-item class="item">
-              <ion-label>Concepto:</ion-label>
+              <ion-label class="item-title">Concepto:</ion-label>
               <ion-label item-right>{{rax.concepto}}</ion-label>
           </ion-item>
 
           <ion-item class="item">
-              <ion-label>Descripción:</ion-label>
+              <ion-label class="item-title">Descripción:</ion-label>
               <ion-label item-right>{{rax.descripcion}}</ion-label>
           </ion-item>
 
           <ion-item class="item">
-              <ion-label>Fecha:</ion-label>
-              <ion-label item-right>{{rax.fecha}}</ion-label>
+              <ion-label class="item-title">Fecha:</ion-label>
+              <ion-label item-right displayFormat="MMM DD, YYYY">{{rax.fecha}}</ion-label>
           </ion-item>
 
           <ion-item class="item">
-              <ion-label>Monto:</ion-label>
-              <ion-label item-right>{{rax.monto}}</ion-label>
+              <ion-label class="item-title">Monto:</ion-label>
+              <ion-label item-right>ARG ${{rax.monto}}</ion-label>
           </ion-item>
 
           <ion-item class="item">
-              <ion-label>OI:</ion-label>
+              <ion-label class="item-title">OI:</ion-label>
               <ion-label item-right>{{rax.oi}}</ion-label>
           </ion-item>
       </ion-list>
-      <button danger button button-medium (click)="goToRechazo()">
-        <ion-icon name="ios-close-circle"></ion-icon>
-        Devolver
-      </button>
-      <button button item-right (click)="evaluate($event)">
-        <ion-icon name="checkmark-circle"></ion-icon>
-        Elevar
-      </button>
     </ion-card-content>
   </ion-card>
 
+  <ion-grid>
+    <ion-row center>
+      <ion-col width-50>
+        <button class="rendicion-grid-button" danger button (click)="goToRechazo()">
+          Devolver
+        </button>
+      </ion-col>
+      <ion-col width-50>
+        <button class="rendicion-grid-button" button (click)="evaluate($event)">
+          Elevar
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
