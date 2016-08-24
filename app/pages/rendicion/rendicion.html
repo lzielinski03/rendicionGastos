@@ -13,48 +13,43 @@
       <ion-label >{{rendicion.description}}</ion-label>
     </ion-item>
 
-    <h2 class="group-title">Gastos Ingresados:</h2>
+    <ion-item>
+      <ion-label>Gastos Ingresados: </ion-label>
+    </ion-item>
 
     <ion-card-content>
 
-      <div *ngFor="let rax of rendicion.gastos">
+      <ion-list *ngFor="let rax of rendicion.gastos">
+          <ion-item class="item">
+              <ion-label>Ceco:</ion-label>
+              <ion-label item-right>{{rax.ceco}}</ion-label>
+          </ion-item>
+          
+          <ion-item class="item">
+              <ion-label>Concepto:</ion-label>
+              <ion-label item-right>{{rax.concepto}}</ion-label>
+          </ion-item>
 
-        
-          <h2 class="card-title">Ceco:</h2>
-          <p>{{rax.ceco}}</p>
-        
+          <ion-item class="item">
+              <ion-label>Descripción:</ion-label>
+              <ion-label item-right>{{rax.descripcion}}</ion-label>
+          </ion-item>
 
-        
-          <h2 class="card-title">Concepto:</h2>
-          <p>{{rax.concepto}}</p>
-        
+          <ion-item class="item">
+              <ion-label>Fecha:</ion-label>
+              <ion-label item-right>{{rax.fecha}}</ion-label>
+          </ion-item>
 
-        
-          <h2 class="card-title">Descripción:</h2>
-          <p>{{rax.descripcion}}</p>
-        
+          <ion-item class="item">
+              <ion-label>Monto:</ion-label>
+              <ion-label item-right>{{rax.monto}}</ion-label>
+          </ion-item>
 
-        
-          <h2 class="card-title">Fecha:</h2>
-          <p>{{rax.fecha}}</p>
-        
-
-        
-          <h2 class="card-title">Forma de Pago:</h2>
-          <p>{{rax.formaPago}}</p>
-        
-
-        
-          <h2 class="card-title">Monto:</h2>
-          <p>{{rax.monto}}</p>
-        
-
-        
-          <h2 class="card-title">OI:</h2>
-          <p>{{rax.oi}}</p>
-        
-
-      </div>
+          <ion-item class="item">
+              <ion-label>OI:</ion-label>
+              <ion-label item-right>{{rax.oi}}</ion-label>
+          </ion-item>
+      </ion-list>
       <button danger button button-medium (click)="goToRechazo()">
         <ion-icon name="ios-close-circle"></ion-icon>
         Devolver
