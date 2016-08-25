@@ -19,9 +19,6 @@ export class ExtendedHttp {
 	}
 
 	intercept(observable: Observable<Response>): Observable<Response> {
-		observable.subscribe(
-			(res) => console.log(JSON.stringify(res.json()))
-		);
 		return observable.catch((err, source) => {
 			console.log(err);
 			return Observable.throw(err);
