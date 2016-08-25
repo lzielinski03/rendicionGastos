@@ -72,9 +72,11 @@ export class RendicionesPage2 {
 		};
 
 		data.map( instance => {
+			console.log(instance.id);
 			instance.data = JSON.parse(instance.data);
-			if (instance.data.length > 1) instance.montoTotal = instance.data.reduce((a, b) => a.monto + b.monto);
+			if (instance.data.length > 1) instance.montoTotal = instance.data.reduce((a, b) => a + b.monto, 0);
 			else if(instance.data[0]) instance.montoTotal = instance.data[0].monto;
+
 			instance.receptionTime = new Date(instance.receptionTime);
 			instance.receptionTime.get
 			if (
@@ -90,7 +92,7 @@ export class RendicionesPage2 {
 			last.dia = instance.receptionTime.getDay();
 
 
-			return 
+			return instance;
 		});
 		this.instances = data;
 	}
