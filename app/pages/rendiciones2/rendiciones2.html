@@ -9,40 +9,36 @@
 	<ion-list>
 		<ion-item-group *ngFor="let instance of instances">
 
-			<ion-item-divider sticky>
+			<ion-item-divider sticky *ngIf="instance.print">
 				{{instance.receptionTime | date:'d/MM'}}
 			</ion-item-divider>
 
 			<ion-item-sliding>
 				<button ion-item (click)="goToRendicion(instance)">
-					<!--ion-label >{{instance.author.name}}</ion-label>
-					<ion-label >ARG ${{instance.montoTotal}}</ion-label-->
-						<div style="display:flex;">
-							<h3 style="flex: 1 0 auto;margin-top:0;">{{instance.author.name}}</h3>
-							<span style="flex: 0 0 auto">Solicitud: {{instance.numeroSolicitud}}</span>
-						</div>
-						<p>
-							<span>ARG ${{instance.montoTotal}}</span>
-						</p>
+					<div style="display:flex;">
+						<h3 style="flex: 1 0 auto;margin-top:0;">{{instance.author.name}}</h3>
+						<span style="flex: 0 0 auto">Solicitud: {{instance.numeroSolicitud}}</span>
+					</div>
+					<p>
+						<span>ARG ${{instance.montoTotal}}</span>
+					</p>
+				</button>
+
+				<ion-item-options>
+					<button favorite (click)="evaluate(instance)">
+						Aprobar
 					</button>
+					<button danger (click)="goToRechazo(instance)">
+						Rechazar
+					</button>
+				</ion-item-options>
+			</ion-item-sliding>
 
-					<ion-item-options>
-						<button favorite>
-							Aprobar
-						</button>
-						<button danger>
-							Rechazar
-						</button>
-					</ion-item-options>
-				</ion-item-sliding>
+		</ion-item-group>
 
-			</ion-item-group>
+	</ion-list>
 
-		</ion-list>
 
-		<ion-list-header [hidden]="instances == 0">
-			No hay rendiciones.
-		</ion-list-header>
 
 	<!--ion-list>
 		<div *ngFor="let process of processes">
