@@ -25,18 +25,19 @@ export class RendicionPage {
 		private http: ExtendedHttp)
 	{
 		this.rendicion = this.params.get('rendicion');
-		this.rendicion.gastos = [];
+		console.log(this.rendicion);
+		//this.rendicion.gastos = [];
 	}
 
 	ionViewWillEnter() {
-		let load = this.loading.create();
+		/*let load = this.loading.create();
 		load.present();
 
 		this.http.get('/api/instance/' + this.rendicion.id).subscribe(
 			res => this.rendicion.gastos = res.json().rendicion.gastos,
 			err => console.log(err),
 			() => load.dismiss()
-		)
+		)*/
 	}
 
 	evaluate(event) {
