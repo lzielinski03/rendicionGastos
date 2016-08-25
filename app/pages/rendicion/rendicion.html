@@ -14,11 +14,12 @@
     <ion-card-content>
 
       <ion-list *ngFor="let rax of rendicion.gastos" class="rendicion-list">
+
           <ion-item class="item">
-              <ion-label class="item-title">Ceco:</ion-label>
-              <ion-label item-right>{{rax.ceco}}</ion-label>
+              <ion-label class="item-title">Fecha:</ion-label>
+              <ion-label item-right displayFormat="MMM DD, YYYY">{{rax.fecha | date: 'dd/MM/YYYY'}}</ion-label>
           </ion-item>
-          
+
           <ion-item class="item">
               <ion-label class="item-title">Concepto:</ion-label>
               <ion-label item-right>{{rax.concepto}}</ion-label>
@@ -29,10 +30,6 @@
               <ion-label item-right>{{rax.descripcion}}</ion-label>
           </ion-item>
 
-          <ion-item class="item">
-              <ion-label class="item-title">Fecha:</ion-label>
-              <ion-label item-right displayFormat="MMM DD, YYYY">{{rax.fecha}}</ion-label>
-          </ion-item>
 
           <ion-item class="item">
               <ion-label class="item-title">Monto:</ion-label>
@@ -40,7 +37,7 @@
           </ion-item>
 
           <ion-item class="item">
-              <ion-label class="item-title">OI:</ion-label>
+              <ion-label class="item-title">Imputación:</ion-label>
               <ion-label item-right>{{rax.oi}}</ion-label>
           </ion-item>
       </ion-list>
@@ -56,7 +53,7 @@
       </ion-col>
       <ion-col width-50>
         <button class="rendicion-grid-button" button (click)="evaluate($event)">
-          Elevar
+          Aprobar
         </button>
       </ion-col>
     </ion-row>
