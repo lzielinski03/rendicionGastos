@@ -28,6 +28,10 @@
 
 	</ion-list>
 
+	<ion-list-header [hidden]="processes > 0">
+		No hay rendiciones.
+	</ion-list-header>
+
 	<!--ion-list>
 		<div *ngFor="let process of processes">
 			<ion-item-group *ngFor="let activity of process.activities">
