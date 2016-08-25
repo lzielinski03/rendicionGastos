@@ -17,8 +17,6 @@ export class UserService {
 	}
 
 	public authenticate(username: string, password: string):Observable<boolean> {
-		console.log(username);
-		console.log(password);
 		return this.http.post('/api/auth', {'username': username, 'password': password}, true)
 		.map((res) => {
 			let resData:any = res.json();

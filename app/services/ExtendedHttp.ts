@@ -5,8 +5,8 @@ import {StorageUtils} from './../utils/StorageUtils';
 
 const CONTENT_TYPE_HEADER:string = 'Content-Type';
 const APPLICATION_JSON:string = 'application/json';
-//const BACKEND_URL:string = 'http://localhost:9090';
-const BACKEND_URL:string = 'http://paralelo.besysoft.com:7901/RendicionGastos-1.0';
+const BACKEND_URL:string = 'http://localhost:9090';
+//const BACKEND_URL:string = 'http://paralelo.besysoft.com:7901/RendicionGastos-1.0';
 
 @Injectable()
 export class ExtendedHttp {
@@ -19,6 +19,9 @@ export class ExtendedHttp {
 	}
 
 	intercept(observable: Observable<Response>): Observable<Response> {
+		observable.subscribe(
+			(res) => console.log(JSON.stringify(res.json()))
+		);
 		return observable.catch((err, source) => {
 			console.log(err);
 			return Observable.throw(err);
