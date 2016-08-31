@@ -36,7 +36,6 @@ export class RendicionesPage {
 	}
 
 	formatData(data) {
-		//console.log(data);
 		let last = {
 			anio: null,
 			mes: null,
